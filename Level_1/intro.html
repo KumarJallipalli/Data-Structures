@@ -42,7 +42,7 @@ Assumptions:
 ANS:
 ----
 
-- Let’s say the DOC to be found is between A, then 1st we will check all the friends/connections of A whether B is in that list
+- Let’s say the DOC to be found is between A & B, then 1st we will check all the friends/connections of A to find out whether B is in that list
 - At max A will have 5000 connections ⇒ if B is one of those connections → 5k iterations
 - If not found, then 2nd we will search for the friends of friends of A → 5K * 5k iterations
 - if not, then 3rd we will search for friends of friends of  friends of A → 5K * 5k * 5k iterations
@@ -65,7 +65,11 @@ i.e., for 3rd degree connection, it will take 20 min to calculate & display.
 
 Meanwhile the user will leave the website ⇒ NOT an Optimal solution
 
-One way is to increase the processing power from 1GHz to some xGHz, but it is very costly & NOT optimal too
+
+So, The approaches will be
+    1. To increase the infrastucture/computing power → Which costs millon of dollars 
+        - As they have to change the infrastructure all around the world → Then, he is a bad developer
+    2. Algorithmic Approach —> Then, he is a good developer
 
 
 for 3rd DOC:
@@ -89,4 +93,7 @@ for 4th DOC:
 - Now we will check these 5k*5k profiles in this map of frd( frd(B ) which will only take 1 iteration as it is a map
 - Total Iterations = 5k*5k + 5k*5k [for mapping] iterations == 0.5s
 - we reduced the time from 72days to 0.5s using just one DS called set/map ⇒ Solved
+
+In this way, 
+A good developer can solve the problems without increasing the infrastructure but through problem solving skills using DSA.
 -->
