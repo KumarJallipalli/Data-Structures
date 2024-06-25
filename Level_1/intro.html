@@ -1,0 +1,92 @@
+<!-- 
+MOTIVATION is a Temporary Thing → Hence it is a Bussiness
+
+Motivation Doesn't Create Action 
+Action Creates Motivation 
+
+Hence perform min basic action to moving forward towards acheiving the goal
+    - 1% action everyday will result in drastic improvement
+    - 1 + 1% = (1.01)^365 = 37.74
+    - But, 1^365 = 1 always
+-->
+
+<!-- 
+Importance of DSA
+-----------------
+
+- In actual company, we will never be using any of the DS’s like tree, tries BS, graph, DP etc..
+- But why companies still ask Q’s about DSA’s cuzz they require candidates who have
+    - problem solving skills → who can approach with new & optimal ideas in a real life problem
+    - more Accuracy in code → Less Bugs
+    - writing Optimal Code → better performance
+-->
+
+<!-- 
+
+`Algorithm` → step by step instructions executed in an Order to solve a problem
+`Data Structures` → Organising the data so that Retriving of data will be faster/optimal
+
+-->
+
+<!-- 
+LinkedIn Interview Q:
+--------------------
+Given 2 LinkedIn profiles, Check the degree of connection between any 2 profiles [ like 1st, 2nd , 3rd, 4th & 4+ ]
+
+Assumptions:
+    → A person can have at max 5000 connections
+    → A 1GHz processor can perform 10^8 iterations/s
+-->
+
+<!-- 
+ANS:
+----
+
+- Let’s say the DOC to be found is between A, then 1st we will check all the friends/connections of A whether B is in that list
+- At max A will have 5000 connections ⇒ if B is one of those connections → 5k iterations
+- If not found, then 2nd we will search for the friends of friends of A → 5K * 5k iterations
+- if not, then 3rd we will search for friends of friends of  friends of A → 5K * 5k * 5k iterations
+- if not, then 4th we will search for friends of friends of  friends of friends of A → 5K * 5k * 5k * 5k iterations
+- else 4+ connection
+
+This way of seaching through each level is called Level Order Traversal (or) Breadth First Search BFF [ as we are searching breathwise ]
+
+
+Assumption → A 1GHz processor can perform 10^8 iterations/s
+
+- if the connection is 1st degree → 5k iterations ⇒ 5000/10^8 = 5*(10^-5) s
+- if the connection is 2nd degree → ( 5k * 5k ) iterations ⇒ 25*10^6/10^8 = 5*(10^-2) s == 0.25s
+- if the connection is 3rd degree → ( 5k * 5k * 5k ) iterations ⇒ 125*10^9/10^8 = 1250s == 20min
+- if the connection is 4th degree → ( 5k * 5k * 5k * 5k ) iterations ⇒ 625*10^12/10^8 = 6250000s == 72 days
+
+Here our problem is with 3rd & 4th DOC
+
+i.e., for 3rd degree connection, it will take 20 min to calculate & display.
+
+Meanwhile the user will leave the website ⇒ NOT an Optimal solution
+
+One way is to increase the processing power from 1GHz to some xGHz, but it is very costly & NOT optimal too
+
+
+for 3rd DOC:
+-----------
+- If A & B are in 3rd DOC, then frd( frd(A) ) & frd(B) must have atleast 1 profile in common
+- frd( frd(A) ) → 5k * 5k iteration
+- frd(B) → 5k iterations
+- Here, we will add the list of profiles of B [ i.e frd (B) ] using a set/map.
+- Now to check whether the profile is present in B, It will only take 1 iteration → 5K iterations reduced to 1 iteration
+- Now we will check these 5k*5k profiles in this map of frd(B) which will only take 1 iteration as it is a map
+- Total Iterations = 5k*5k + 5k [for mapping] iterations == 0.255s
+- we reduced the time from 20min to 0.255s using just one DS called set/map ⇒ Solved
+
+for 4th DOC:
+-----------
+- If A & B are in 4th DOC, then frd( frd(A) ) & frd( frd(B ) must have atleast 1 profile in common
+- frd( frd(A) ) → 5k * 5k iteration
+- frd( frd(B ) → 5k*5k iterations
+- Here, we will add the list of profiles of 1st & 2nd DOC of B [ i.e frd( frd(B ) ] using a set/map.
+- Now to check whether the profile is present in B, It will only take 1 iteration → 5K*5k iterations reduced to 1 iteration
+- Now we will check these 5k*5k profiles in this map of frd( frd(B ) which will only take 1 iteration as it is a map
+- Total Iterations = 5k*5k + 5k*5k [for mapping] iterations == 0.5s
+- we reduced the time from 72days to 0.5s using just one DS called set/map ⇒ Solved
+-->
